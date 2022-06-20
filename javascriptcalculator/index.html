@@ -19,28 +19,28 @@
     <div class="calculator-wrapper">
       <div class="calculator-inner-wrapper">
         <div class="display-wrapper">
-          <p class="display">hell0</p>
+          <input type="text" class="display" id="display" value="">
         </div>
         <div class="button-wrapper">
-          <button>C</button>
-          <button>/</button>
-          <button>*</button>
-          <button><ion-icon name="backspace-outline"></ion-icon></button>
-          <button>7</button>
-          <button>8</button>
-          <button>9</button>
-          <button>-</button>
-          <button>4</button>
-          <button>5</button>
-          <button>6</button>
-          <button>+</button>
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
-          <button class="equal-to-button">=</button>
-          <button>%</button>
-          <button>0</button>
-          <button>.</button>
+          <button onclick="clearScreen()">C</button>
+          <button type="sumbit" value="/" onclick="display('/')">/</button>
+          <button type="sumbit" value="*" onclick="display('*')">*</button>
+          <button type="submit" onclick="backspace()"><ion-icon name="backspace-outline"></ion-icon></button>
+          <button type="sumbit" value="7" onclick="display('7')">7</button>
+          <button type="sumbit" value="8" onclick="display('8')">8</button>
+          <button type="sumbit" value="9" onclick="display('9')">9</button>
+          <button type="sumbit" value="-" onclick="display('-')">-</button>
+          <button type="sumbit" value="4" onclick="display('4')">4</button>
+          <button type="sumbit" value="5" onclick="display('5')">5</button>
+          <button type="sumbit" value="6" onclick="display('6')">6</button>
+          <button type="sumbit" value="+" onclick="display('+')">+</button>
+          <button type="sumbit" value="1" onclick="display('1')">1</button>
+          <button type="sumbit" value="2" onclick="display('2')">2</button>
+          <button type="sumbit" value="3" onclick="display('3')">3</button>
+          <button class="equal-to-button" onclick="solve()">=</button>
+          <button type="sumbit" value="%" onclick="display('%')">%</button>
+          <button type="sumbit" value="0" onclick="display('0')">0</button>
+          <button type="sumbit" value="." onclick="display('.')">.</button>
         </div>
       </div>
     </div>

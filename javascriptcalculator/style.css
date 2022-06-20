@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "poppins",sans-serif;
+  font-family: "poppins", sans-serif;
 }
 .calculator-wrapper {
   display: grid;
@@ -16,7 +16,7 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  min-width: 400px;
+  width: 400px;
   height: 550px;
   padding: 20px;
   border: 5px solid #a99587;
@@ -33,12 +33,19 @@
 .display {
   width: 100%;
   height: 100%;
-  text-align: right;
   display: grid;
   place-content: center;
   font-size: 2.5rem;
   font-weight: 800;
-  color:chocolate;
+  color: chocolate;
+  overflow: hidden;
+  background-color: transparent;
+  border: none;
+  word-wrap: break-word;
+  padding:10px;
+}
+.display:focus{
+  outline: none;
 }
 .button-wrapper {
   width: 100%;
@@ -47,6 +54,17 @@
   grid-template-columns: repeat(4, 1fr);
   place-items: center;
   gap: 20px;
+}
+input[type="submit"] {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: none;
+  font-size: 2rem;
+  display: grid;
+  place-content: center;
+  background-color: #fdf5f0;
+  transition: all 200ms ease 0s;
 }
 button {
   width: 100%;
