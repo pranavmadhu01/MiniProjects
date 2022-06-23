@@ -1,7 +1,8 @@
-const Todocards = ({data}) =>{
+import "./Todocards.css"
+const Todocards = ({todo}) =>{
   return(
     <div>
-      <h1>{data}</h1>
+      <h4 className={todo.complete?"strike":""}>{todo.task}</h4>
     </div>
   )
 }
