@@ -1,8 +1,0 @@
-.App{
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap:30px;
-  padding:30px;
-}
