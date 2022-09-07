@@ -4,9 +4,19 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  background-color: black;
+  min-height: 100vh;
 }
 h1 {
   font-size: 4vw;
+  color: #01d711;
+  font-weight: 200;
+}
+h3{
+  font-size: 15px;
+  color: red;
+  font-weight: 900;
+
 }
 .app > div {
   display: flex;
@@ -22,16 +32,22 @@ input {
   max-width: 400px;
 }
 button {
-  border:none;
+  border: none;
   border-radius: 5px;
   padding: 5px;
-  background-color: black;
-  color: white;
+  background-color: #1d1d1b;
+  color: #43c09a;
   outline: none;
   font-weight: 900;
+  cursor: pointer;
 }
 img {
   width: 100%;
   max-width: 300px;
   object-fit: cover;
+}
+@media all and (max-width: 1000px) {
+  .app {
+    justify-content: center;
+  }
 }

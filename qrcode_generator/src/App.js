@@ -7,27 +7,39 @@ function App() {
   const [qrcode, setQrcode] = useState("");
   const [hostname, setHostname] = useState("");
   function GenerateQR() {
-    QRCode.toDataURL(Url, function (err, url) {
-      if (err) {
-        console.error(err);
-      } else {
-        var url3 = Url;
+    QRCode.toDataURL(
+      Url,
+      {
+        width: 800,
+        margin: 0.5,
+        quality: 1,
+        color: {
+          dark: "#2892D7",
+          light: "#000000",
+        },
+      },
+      function (err, url) {
+        if (err) {
+          console.error(err);
+        } else {
+          var url3 = Url;
 
-        var j = url3.indexOf("://");
+          var j = url3.indexOf("://");
 
-        var host = "";
+          var host = "";
 
-        for (var i = j + 3; i < url3.length; i++) {
-          if (url3.charAt(i) != "/") {
-            host = host + "" + url3.charAt(i);
-          } else {
-            break;
+          for (var i = j + 3; i < url3.length; i++) {
+            if (url3.charAt(i) != "/") {
+              host = host + "" + url3.charAt(i);
+            } else {
+              break;
+            }
           }
+          setHostname(host);
+          setQrcode(url);
         }
-        setHostname(host);
-        setQrcode(url);
       }
-    });
+    );
   }
   return (
     <div className="app">
@@ -41,10 +53,16 @@ function App() {
         />
         <button onClick={GenerateQR}>Generate</button>
       </div>
-      <img src={qrcode} alt="" />
-      <a href={qrcode} download={`${hostname}.png`}>
-        <button>Download here</button>
-      </a>
+      {qrcode ? (
+        <>
+          <img src={qrcode} alt="" />
+          <a href={qrcode} download={`${hostname}.png`}>
+            <button>Download here</button>
+          </a>
+        </>
+      ) : (
+        <h3>Enter a valid url first</h3>
+      )}
     </div>
   );
 }
