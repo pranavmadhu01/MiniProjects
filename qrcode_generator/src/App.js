@@ -43,7 +43,7 @@ function App() {
   }
   return (
     <div className="app">
-      <h1>Generate your Qr code for free</h1>
+      <h1>Generate your Qr code here!!!</h1>
       <div>
         <input
           type="text"
