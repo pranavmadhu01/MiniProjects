@@ -7,7 +7,7 @@ function App() {
   const [qrcode, setQrcode] = useState("");
   const [hostname, setHostname] = useState("");
   function GenerateQR() {
-    QRCode.toDataURL("I am a pony!", function (err, url) {
+    QRCode.toDataURL(Url, function (err, url) {
       if (err) {
         console.error(err);
       } else {

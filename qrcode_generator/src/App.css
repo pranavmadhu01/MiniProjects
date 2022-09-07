@@ -22,11 +22,13 @@ input {
   max-width: 400px;
 }
 button {
-  border: 2 px solid grey;
+  border:none;
+  border-radius: 5px;
   padding: 5px;
   background-color: black;
   color: white;
   outline: none;
+  font-weight: 900;
 }
 img {
   width: 100%;
