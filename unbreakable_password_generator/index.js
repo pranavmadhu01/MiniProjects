@@ -1,3 +1,8 @@
+const express = require("express");
+const cors = require("cors");
+
+const app = express();
+
 const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 const lettersSmall = [
   "a",
@@ -56,14 +61,23 @@ const lettersCap = [
   "Z",
 ];
 const specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
-const intermediate = [];
-let passLength = 8;
-function getRandomItem(arr) {
-  const randomIndex = Math.floor(Math.random() * arr.length);
-  const item = arr[randomIndex];
-  return item;
-}
-function generatePassword() {
+
+app.use(cors());
+app.use(express.json());
+
+app.listen(8080, () => {
+  console.log("listening on 8080");
+});
+
+app.get("/api/passgenerate", (req, res) => {
+  const intermediate = [];
+  let pass = "";
+  let passLength = 8;
+  function getRandomItem(arr) {
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    const item = arr[randomIndex];
+    return item;
+  }
   for (var i = 0; i < passLength; i++) {
     intermediate.push(getRandomItem(numbers));
     intermediate.push(getRandomItem(lettersSmall));
@@ -71,7 +85,10 @@ function generatePassword() {
     intermediate.push(getRandomItem(specialChar));
   }
   for (var i = 0; i < passLength; i++) {
-    console.log(getRandomItem(intermediate));
+    pass += getRandomItem(intermediate);
   }
-}
-generatePassword();
+  res.status(200).json({
+    success: "true",
+    result: pass,
+  });
+});
